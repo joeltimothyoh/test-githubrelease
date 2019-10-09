@@ -26,4 +26,4 @@ stages:
     - checkout: self
       submodules: recursive
     - bash: echo hello
-    - template: templates/azure-pipelines/common/run-publish.yml@PSModulePublisher
+    - template: templates/azure-pipelines/run-release.yml@PSRepositoryReleaseManager
