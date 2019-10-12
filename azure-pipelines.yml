@@ -19,9 +19,17 @@ stages:
 - stage: Build_Release
   displayName: Build, Release
   jobs:
-  - job: Linux
+  # - job: Linux
+  #   pool:
+  #     vmImage: ubuntu-16.04
+  #   steps:
+  #   - checkout: self
+  #     submodules: recursive
+  #   - bash: echo hello
+  #   - template: templates/azure-pipelines/pwsh/release.yml@PSRepositoryReleaseManager
+  - job: Windows
     pool:
-      vmImage: ubuntu-16.04
+      vmImage: windows-2019
     steps:
     - checkout: self
       submodules: recursive
