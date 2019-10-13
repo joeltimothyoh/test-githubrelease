@@ -19,19 +19,35 @@ stages:
 - stage: Build_Release
   displayName: Build, Release
   jobs:
-  # - job: Linux
+  # - job: linux
+  #   displayName: '[Linux]'
   #   pool:
   #     vmImage: ubuntu-16.04
   #   steps:
   #   - checkout: self
   #     submodules: recursive
-  #   - bash: echo hello
   #   - template: templates/azure-pipelines/pwsh/release.yml@PSRepositoryReleaseManager
-  - job: Windows
+  # - job: windows_pwsh
+  #   displayName: '[Windows] PowerShell Core'
+  #   pool:
+  #     vmImage: windows-2019
+  #   steps:
+  #   - checkout: self
+  #     submodules: recursive
+  #   - template: templates/azure-pipelines/pwsh/release.yml@PSRepositoryReleaseManager
+  - job: windows_powershell_5_1
+    displayName: '[Windows] PowerShell 5.1'
     pool:
       vmImage: windows-2019
     steps:
     - checkout: self
       submodules: recursive
-    - bash: echo hello
-    - template: templates/azure-pipelines/pwsh/release.yml@PSRepositoryReleaseManager
+    - template: templates/azure-pipelines/powershell/release.yml@PSRepositoryReleaseManager
+  # - job: windows_powershell_5_0
+  #   displayName: '[Windows] PowerShell 5.0'
+  #   pool:
+  #     vmImage: vs2015-win2012r2
+  #   steps:
+  #   - checkout: self
+  #     submodules: recursive
+  #   - template: templates/azure-pipelines/powershell/release.yml@PSRepositoryReleaseManager
