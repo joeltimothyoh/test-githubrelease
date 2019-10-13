@@ -16,7 +16,7 @@ resources:
     ref: refs/heads/dev
 
 stages:
-- stage: Build_Release
+- stage: build_release
   displayName: Build, Release
   jobs:
   # - job: linux
