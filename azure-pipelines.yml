@@ -19,6 +19,15 @@ stages:
 - stage: build_release
   displayName: Build, Release
   jobs:
+  - job: linux_container
+    displayName: '[Linux] [Container]'
+    pool:
+      vmImage: ubuntu-16.04
+    container: joeltimothyoh/powershell:6.1.0-ubuntu-18.04-git
+    steps:
+    - checkout: self
+      submodules: recursive
+    - template: templates/azure-pipelines/pwsh/release.yml@PSRepositoryReleaseManager
   # - job: linux
   #   displayName: '[Linux]'
   #   pool:
@@ -51,11 +60,11 @@ stages:
   #   - checkout: self
   #     submodules: recursive
   #   - template: templates/azure-pipelines/powershell/release.yml@PSRepositoryReleaseManager
-  - job: macos
-    displayName: '[macOS]'
-    pool:
-      vmImage: macOS-10.14
-    steps:
-    - checkout: self
-      submodules: recursive
-    - template: templates/azure-pipelines/powershell/release.yml@PSRepositoryReleaseManager
+  # - job: macos
+  #   displayName: '[macOS]'
+  #   pool:
+  #     vmImage: macOS-10.14
+  #   steps:
+  #   - checkout: self
+  #     submodules: recursive
+  #   - template: templates/azure-pipelines/powershell/release.yml@PSRepositoryReleaseManager
