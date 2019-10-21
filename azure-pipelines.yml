@@ -23,7 +23,7 @@ stages:
     displayName: '[Linux] [Container]'
     pool:
       vmImage: ubuntu-16.04
-    container: joeltimothyoh/powershell:6.1.0-ubuntu-18.04-git
+    container: mcr.microsoft.com/powershell:6.1.0-alpine-3.8
     steps:
     - checkout: self
       submodules: recursive
