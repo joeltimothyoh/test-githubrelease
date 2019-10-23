@@ -50,13 +50,15 @@ stages:
         NOTES_PATH: ./path/to/release-notes.md
     - template: templates/azure-pipelines/entrypoint/pwsh/release.yml@PSRepositoryReleaseManager
       parameters:
-        NAME: v0.0.48 custom
+        NAME: Custom release
         NOTES_PATH: ./path/to/release-notes.md
         NOTES_CONTENT: |
           my custom content
           a multi-line body
           with a foot
           and a tail
+        DRAFT: true
+
   # - job: windows_powershell_5_1
   #   displayName: '[Windows] PowerShell 5.1'
   #   pool:
