@@ -46,20 +46,20 @@ stages:
     - checkout: self
       submodules: recursive
     - template: templates/azure-pipelines/entrypoint/pwsh/generate-notes.yml@PSRepositoryReleaseManager
-      parameters:
-        NOTES_PATH: ./path/to/release-notes.md
-        VARIANT: DateCommitHistory
+      # parameters:
+        # NOTES_PATH: ./path/to/release-notes.md
+        # VARIANT: DateCommitHistory
     - template: templates/azure-pipelines/entrypoint/pwsh/release.yml@PSRepositoryReleaseManager
-      parameters:
-        NAME: Custom release
-        NOTES_PATH: ./path/to/release-notes.md
-        NOTES_CONTENT: |
-          my custom content
-          a multi-line body
-          with a foot
-          and a tail
+      # parameters:
+        # NAME: Custom release
+        # NOTES_PATH: ./path/to/release-notes.md
+        # NOTES_CONTENT: |
+        #   my custom content
+        #   a multi-line body
+        #   with a foot
+        #   and a tail
         # DRAFT: 'true'
-        PRERELEASE: 'true'
+        # PRERELEASE: 'true'
 
   # - job: windows_powershell_5_1
   #   displayName: '[Windows] PowerShell 5.1'
