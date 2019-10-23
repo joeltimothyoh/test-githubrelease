@@ -31,6 +31,7 @@ stages:
       parameters:
         GITHUB_API_TOKEN_VARIABLE_NAME: MY_GITHUB_API_TOKEN
         TEST_PARAMETER: testvalue
+        TEST_PARAMETER_VARIABLE_NAME: TEST_PARAMETER
   # - job: linux
   #   displayName: '[Linux]'
   #   pool:
