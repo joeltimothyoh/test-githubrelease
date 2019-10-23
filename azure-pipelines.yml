@@ -13,7 +13,7 @@ resources:
     type: github
     name: theohbrothers/PSRepositoryReleaseManager
     endpoint: joeltimothyoh
-    ref: refs/heads/dev-mapped-secret-variables
+    ref: refs/heads/dev-mapped-secret-variables-debug
 
 stages:
 - stage: build_release
@@ -30,6 +30,7 @@ stages:
     - template: templates/azure-pipelines/pwsh/release.yml@PSRepositoryReleaseManager
       parameters:
         GITHUB_API_TOKEN_VARIABLE_NAME: MY_GITHUB_API_TOKEN
+        TEST_PARAMETER: testvalue
   # - job: linux
   #   displayName: '[Linux]'
   #   pool:
