@@ -51,7 +51,7 @@ stages:
     - template: templates/azure-pipelines/entrypoint/pwsh/release.yml@PSRepositoryReleaseManager
       parameters:
         NAME: v0.0.48 custom
-        # NOTES_PATH: ./path/to/release-notes.md
+        NOTES_PATH: ./path/to/release-notes.md
         NOTES_CONTENT: |
           my custom content
           a multi-line body
