@@ -58,6 +58,7 @@ stages:
           with a foot
           and a tail
         DRAFT: 'true'
+        PRERELEASE: true
 
   # - job: windows_powershell_5_1
   #   displayName: '[Windows] PowerShell 5.1'
