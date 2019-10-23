@@ -13,37 +13,40 @@ resources:
     type: github
     name: theohbrothers/PSRepositoryReleaseManager
     endpoint: joeltimothyoh
-    ref: refs/heads/dev
+    ref: refs/heads/dev-segregate-generate-and-release-steps
 
 stages:
 - stage: build_release
   displayName: Build, Release
   jobs:
-  # - job: linux_container
-  #   displayName: '[Linux] [Container]'
-  #   pool:
-  #     vmImage: ubuntu-16.04
-  #   container: joeltimothyoh/powershell:6.1.0-ubuntu-18.04-git
-  #   steps:
-  #   - checkout: self
-  #     submodules: recursive
-  #   - template: templates/azure-pipelines/entrypoint/pwsh/release.yml@PSRepositoryReleaseManager
-  # - job: linux
-  #   displayName: '[Linux]'
-  #   pool:
-  #     vmImage: ubuntu-16.04
-  #   steps:
-  #   - checkout: self
-  #     submodules: recursive
-  #   - template: templates/azure-pipelines/entrypoint/pwsh/release.yml@PSRepositoryReleaseManager
-  # - job: windows_pwsh
-  #   displayName: '[Windows] PowerShell Core'
-  #   pool:
-  #     vmImage: windows-2019
-  #   steps:
-  #   - checkout: self
-  #     submodules: recursive
-  #   - template: templates/azure-pipelines/entrypoint/pwsh/release.yml@PSRepositoryReleaseManager
+  - job: linux_container
+    displayName: '[Linux] [Container]'
+    pool:
+      vmImage: ubuntu-16.04
+    container: joeltimothyoh/powershell:6.1.0-ubuntu-18.04-git
+    steps:
+    - checkout: self
+      submodules: recursive
+    - template: templates/azure-pipelines/entrypoint/pwsh/generate-notes.yml@PSRepositoryReleaseManager
+    # - template: templates/azure-pipelines/entrypoint/pwsh/release.yml@PSRepositoryReleaseManager
+  - job: linux
+    displayName: '[Linux]'
+    pool:
+      vmImage: ubuntu-16.04
+    steps:
+    - checkout: self
+      submodules: recursive
+    - template: templates/azure-pipelines/entrypoint/pwsh/generate-notes.yml@PSRepositoryReleaseManager
+    # - template: templates/azure-pipelines/entrypoint/pwsh/release.yml@PSRepositoryReleaseManager
+  - job: windows_pwsh
+    displayName: '[Windows] PowerShell Core'
+    pool:
+      vmImage: windows-2019
+    steps:
+    - checkout: self
+      submodules: recursive
+    - template: templates/azure-pipelines/entrypoint/pwsh/generate-notes.yml@PSRepositoryReleaseManager
+    # - template: templates/azure-pipelines/entrypoint/pwsh/release.yml@PSRepositoryReleaseManager
   - job: windows_powershell_5_1
     displayName: '[Windows] PowerShell 5.1'
     pool:
@@ -51,20 +54,23 @@ stages:
     steps:
     - checkout: self
       submodules: recursive
-    - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
-  # - job: windows_powershell_5_0
-  #   displayName: '[Windows] PowerShell 5.0'
-  #   pool:
-  #     vmImage: vs2015-win2012r2
-  #   steps:
-  #   - checkout: self
-  #     submodules: recursive
-  #   - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
-  # - job: macos
-  #   displayName: '[macOS]'
-  #   pool:
-  #     vmImage: macOS-10.14
-  #   steps:
-  #   - checkout: self
-  #     submodules: recursive
-  #   - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
+    - template: templates/azure-pipelines/entrypoint/powershell/generate-notes.yml@PSRepositoryReleaseManager
+    # - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
+  - job: windows_powershell_5_0
+    displayName: '[Windows] PowerShell 5.0'
+    pool:
+      vmImage: vs2015-win2012r2
+    steps:
+    - checkout: self
+      submodules: recursive
+    - template: templates/azure-pipelines/entrypoint/powershell/generate-notes.yml@PSRepositoryReleaseManager
+    # - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
+  - job: macos
+    displayName: '[macOS]'
+    pool:
+      vmImage: macOS-10.14
+    steps:
+    - checkout: self
+      submodules: recursive
+    - template: templates/azure-pipelines/entrypoint/powershell/generate-notes.yml@PSRepositoryReleaseManager
+    # - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
