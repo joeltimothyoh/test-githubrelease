@@ -29,7 +29,7 @@ stages:
       submodules: recursive
     - template: templates/azure-pipelines/pwsh/release.yml@PSRepositoryReleaseManager
       parameters:
-        GITHUB_API_TOKEN_VARIABLE_NAME: GITHUB_API_TOKENN
+        GITHUB_API_TOKEN_VARIABLE_NAME: MY_GITHUB_API_TOKEN
   # - job: linux
   #   displayName: '[Linux]'
   #   pool:
