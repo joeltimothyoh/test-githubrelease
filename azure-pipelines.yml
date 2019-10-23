@@ -49,19 +49,22 @@ stages:
     #   parameters:
     #     NOTES_PATH: path/to/release-notes.md
     #     VARIANT: DateCommitHistory
-    - pwsh: |
-        $myReleaseNotesContent = Get-Content -Path ./README.md -Raw
-        echo "##vso[task.setvariable variable=MY_RELEASE_NOTES_CONTENT]${myReleaseNotesContent}"
+    # - pwsh: |
+    #     $myReleaseNotesContent = Get-Content -Path ./README.md -Raw
+    #     echo "##vso[task.setvariable variable=MY_RELEASE_NOTES_CONTENT]${myReleaseNotesContent}"
     - template: templates/azure-pipelines/entrypoint/pwsh/release.yml@PSRepositoryReleaseManager
       parameters:
         # NAME: Custom release
         # NOTES_PATH: ./path/to/release-notes.md
-        # NOTES_CONTENT: |
-        #   my custom content
-        #   a multi-line body
-        #   with a foot
-        #   and a tail
-        NOTES_CONTENT: $(MY_RELEASE_NOTES_CONTENT)
+        NOTES_CONTENT: |
+          My
+
+          multi-line          
+          release
+          notes
+
+          end
+        # NOTES_CONTENT: $(MY_RELEASE_NOTES_CONTENT)
         # DRAFT: true
         # PRERELEASE: true
 
