@@ -19,15 +19,15 @@ stages:
 - stage: build_release
   displayName: Build, Release
   jobs:
-  - job: linux_container
-    displayName: '[Linux] [Container]'
-    pool:
-      vmImage: ubuntu-16.04
-    container: joeltimothyoh/powershell:6.1.0-ubuntu-18.04-git
-    steps:
-    - checkout: self
-      submodules: recursive
-    - template: templates/azure-pipelines/entrypoint/pwsh/release.yml@PSRepositoryReleaseManager
+  # - job: linux_container
+  #   displayName: '[Linux] [Container]'
+  #   pool:
+  #     vmImage: ubuntu-16.04
+  #   container: joeltimothyoh/powershell:6.1.0-ubuntu-18.04-git
+  #   steps:
+  #   - checkout: self
+  #     submodules: recursive
+  #   - template: templates/azure-pipelines/entrypoint/pwsh/release.yml@PSRepositoryReleaseManager
   # - job: linux
   #   displayName: '[Linux]'
   #   pool:
@@ -44,14 +44,14 @@ stages:
   #   - checkout: self
   #     submodules: recursive
   #   - template: templates/azure-pipelines/entrypoint/pwsh/release.yml@PSRepositoryReleaseManager
-  # - job: windows_powershell_5_1
-  #   displayName: '[Windows] PowerShell 5.1'
-  #   pool:
-  #     vmImage: windows-2019
-  #   steps:
-  #   - checkout: self
-  #     submodules: recursive
-  #   - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
+  - job: windows_powershell_5_1
+    displayName: '[Windows] PowerShell 5.1'
+    pool:
+      vmImage: windows-2019
+    steps:
+    - checkout: self
+      submodules: recursive
+    - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
   # - job: windows_powershell_5_0
   #   displayName: '[Windows] PowerShell 5.0'
   #   pool:
