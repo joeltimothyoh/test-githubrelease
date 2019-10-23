@@ -47,7 +47,7 @@ stages:
       submodules: recursive
     - template: templates/azure-pipelines/entrypoint/pwsh/generate-notes.yml@PSRepositoryReleaseManager
       parameters:
-        NOTES_PATH: path/to/release-notes.md
+        NOTES_PATH: ./path/to/release-notes.md
     # - template: templates/azure-pipelines/entrypoint/pwsh/release.yml@PSRepositoryReleaseManager
   # - job: windows_powershell_5_1
   #   displayName: '[Windows] PowerShell 5.1'
