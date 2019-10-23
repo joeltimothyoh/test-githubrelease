@@ -27,7 +27,7 @@ stages:
     steps:
     - checkout: self
       submodules: recursive
-    - template: templates/azure-pipelines/pwsh/release.yml@PSRepositoryReleaseManager
+    - template: templates/azure-pipelines/entrypoint/pwsh/release.yml@PSRepositoryReleaseManager
   # - job: linux
   #   displayName: '[Linux]'
   #   pool:
@@ -35,7 +35,7 @@ stages:
   #   steps:
   #   - checkout: self
   #     submodules: recursive
-  #   - template: templates/azure-pipelines/pwsh/release.yml@PSRepositoryReleaseManager
+  #   - template: templates/azure-pipelines/entrypoint/pwsh/release.yml@PSRepositoryReleaseManager
   # - job: windows_pwsh
   #   displayName: '[Windows] PowerShell Core'
   #   pool:
@@ -43,7 +43,7 @@ stages:
   #   steps:
   #   - checkout: self
   #     submodules: recursive
-  #   - template: templates/azure-pipelines/pwsh/release.yml@PSRepositoryReleaseManager
+  #   - template: templates/azure-pipelines/entrypoint/pwsh/release.yml@PSRepositoryReleaseManager
   # - job: windows_powershell_5_1
   #   displayName: '[Windows] PowerShell 5.1'
   #   pool:
@@ -51,7 +51,7 @@ stages:
   #   steps:
   #   - checkout: self
   #     submodules: recursive
-  #   - template: templates/azure-pipelines/powershell/release.yml@PSRepositoryReleaseManager
+  #   - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
   # - job: windows_powershell_5_0
   #   displayName: '[Windows] PowerShell 5.0'
   #   pool:
@@ -59,7 +59,7 @@ stages:
   #   steps:
   #   - checkout: self
   #     submodules: recursive
-  #   - template: templates/azure-pipelines/powershell/release.yml@PSRepositoryReleaseManager
+  #   - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
   # - job: macos
   #   displayName: '[macOS]'
   #   pool:
@@ -67,4 +67,4 @@ stages:
   #   steps:
   #   - checkout: self
   #     submodules: recursive
-  #   - template: templates/azure-pipelines/powershell/release.yml@PSRepositoryReleaseManager
+  #   - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
