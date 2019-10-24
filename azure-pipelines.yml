@@ -5,7 +5,10 @@ trigger:
   tags:
     include:
     - '*'
-pr: none
+pr:
+  branches:
+    include:
+    - '*'
 
 resources:
   repositories:
@@ -19,15 +22,16 @@ stages:
 - stage: build_release
   displayName: Build, Release
   jobs:
-  - job: linux_container
-    displayName: '[Linux] [Container]'
-    pool:
-      vmImage: ubuntu-16.04
-    container: joeltimothyoh/powershell:6.1.0-ubuntu-18.04-git
-    steps:
-    - checkout: self
-      submodules: recursive
-    - template: templates/azure-pipelines/pwsh/release.yml@PSRepositoryReleaseManager
+  # - job: linux_container
+  #   displayName: '[Linux] [Container]'
+  #   pool:
+  #     vmImage: ubuntu-16.04
+  #   container: joeltimothyoh/powershell:6.1.0-ubuntu-18.04-git
+  #   steps:
+  #   - checkout: self
+  #     submodules: recursive
+  #   - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
+  #   - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
   # - job: linux
   #   displayName: '[Linux]'
   #   pool:
@@ -35,15 +39,38 @@ stages:
   #   steps:
   #   - checkout: self
   #     submodules: recursive
-  #   - template: templates/azure-pipelines/pwsh/release.yml@PSRepositoryReleaseManager
-  # - job: windows_pwsh
-  #   displayName: '[Windows] PowerShell Core'
-  #   pool:
-  #     vmImage: windows-2019
-  #   steps:
-  #   - checkout: self
-  #     submodules: recursive
-  #   - template: templates/azure-pipelines/pwsh/release.yml@PSRepositoryReleaseManager
+  #   - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
+  #   - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
+  - job: windows_pwsh
+    displayName: '[Windows] PowerShell Core'
+    pool:
+      vmImage: windows-2019
+    steps:
+    - checkout: self
+      submodules: recursive
+    - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
+  #     parameters:
+  #       NOTES_PATH: path/to/release-notes.md
+  #       VARIANT: DateCommitHistory
+  #   - pwsh: |
+  #       $myReleaseNotesContent = Get-Content -Path ./README.md -Raw
+  #       echo "##vso[task.setvariable variable=MY_RELEASE_NOTES_CONTENT]${myReleaseNotesContent}"
+    - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
+  #     parameters:
+  #       NAME: Custom release
+  #       NOTES_PATH: ./path/to/release-notes.md
+  #       NOTES_CONTENT: |
+  #         My
+
+  #         multi-line
+  #         release
+  #         notes
+
+  #         end
+  #       NOTES_CONTENT: $(MY_RELEASE_NOTES_CONTENT)
+  #       DRAFT: true
+  #       PRERELEASE: true
+
   # - job: windows_powershell_5_1
   #   displayName: '[Windows] PowerShell 5.1'
   #   pool:
@@ -51,7 +78,8 @@ stages:
   #   steps:
   #   - checkout: self
   #     submodules: recursive
-  #   - template: templates/azure-pipelines/powershell/release.yml@PSRepositoryReleaseManager
+  #   - template: templates/azure-pipelines/entrypoint/powershell/generate.yml@PSRepositoryReleaseManager
+  #   - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
   # - job: windows_powershell_5_0
   #   displayName: '[Windows] PowerShell 5.0'
   #   pool:
@@ -59,7 +87,8 @@ stages:
   #   steps:
   #   - checkout: self
   #     submodules: recursive
-  #   - template: templates/azure-pipelines/powershell/release.yml@PSRepositoryReleaseManager
+  #   - template: templates/azure-pipelines/entrypoint/powershell/generate.yml@PSRepositoryReleaseManager
+  #   - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
   # - job: macos
   #   displayName: '[macOS]'
   #   pool:
@@ -67,4 +96,5 @@ stages:
   #   steps:
   #   - checkout: self
   #     submodules: recursive
-  #   - template: templates/azure-pipelines/powershell/release.yml@PSRepositoryReleaseManager
+  #   - template: templates/azure-pipelines/entrypoint/powershell/generate.yml@PSRepositoryReleaseManager
+  #   - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
