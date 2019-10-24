@@ -48,7 +48,7 @@ stages:
     steps:
     - checkout: self
       submodules: recursive
-  #   - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
+    - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
   #     parameters:
   #       NOTES_PATH: path/to/release-notes.md
   #       VARIANT: DateCommitHistory
