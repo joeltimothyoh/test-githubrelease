@@ -23,7 +23,7 @@ stages:
   displayName: Build, Release
   jobs:
   # - job: linux_container
-  #   displayName: '[Linux] [Container]'
+  #   displayName: '[Linux] [Container] PowerShell Core'
   #   pool:
   #     vmImage: ubuntu-18.04
   #   container: joeltimothyoh/powershell:6.1.0-ubuntu-18.04-git
@@ -33,7 +33,7 @@ stages:
   #   - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
   #   - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
   # - job: linux
-  #   displayName: '[Linux]'
+  #   displayName: '[Linux] PowerShell Core'
   #   pool:
   #     vmImage: ubuntu-18.04
   #   steps:
@@ -89,7 +89,7 @@ stages:
   #   - template: templates/azure-pipelines/entrypoint/powershell/generate.yml@PSRepositoryReleaseManager
   #   - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
   # - job: macos
-  #   displayName: '[macOS]'
+  #   displayName: '[macOS] PowerShell Core'
   #   pool:
   #     vmImage: macOS-10.14
   #   steps:
