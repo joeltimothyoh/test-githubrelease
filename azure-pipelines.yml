@@ -22,16 +22,16 @@ stages:
 - stage: build_release
   displayName: Build, Release
   jobs:
-  - job: linux_container
-    displayName: '[Linux] [Container] PowerShell Core'
-    pool:
-      vmImage: ubuntu-18.04
-    container: joeltimothyoh/powershell:6.1.0-ubuntu-18.04-git
-    steps:
-    - checkout: self
-      submodules: recursive
-    - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
-    - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
+  # - job: linux_container
+  #   displayName: '[Linux] [Container] PowerShell Core'
+  #   pool:
+  #     vmImage: ubuntu-18.04
+  #   container: joeltimothyoh/powershell:6.1.0-ubuntu-18.04-git
+  #   steps:
+  #   - checkout: self
+  #     submodules: recursive
+  #   - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
+  #   - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
   # - job: linux
   #   displayName: '[Linux] PowerShell Core'
   #   pool:
@@ -70,15 +70,15 @@ stages:
   #       NOTES_CONTENT: $(MY_RELEASE_NOTES_CONTENT)
   #       DRAFT: true
   #       PRERELEASE: true
-  # - job: windows_powershell_5_1
-  #   displayName: '[Windows] PowerShell 5.1'
-  #   pool:
-  #     vmImage: windows-2019
-  #   steps:
-  #   - checkout: self
-  #     submodules: recursive
-  #   - template: templates/azure-pipelines/entrypoint/powershell/generate.yml@PSRepositoryReleaseManager
-  #   - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
+  - job: windows_powershell_5_1
+    displayName: '[Windows] PowerShell 5.1'
+    pool:
+      vmImage: windows-2019
+    steps:
+    - checkout: self
+      submodules: recursive
+    - template: templates/azure-pipelines/entrypoint/powershell/generate.yml@PSRepositoryReleaseManager
+    - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
   # - job: windows_powershell_5_0
   #   displayName: '[Windows] PowerShell 5.0'
   #   pool:
