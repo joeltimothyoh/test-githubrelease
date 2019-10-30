@@ -79,6 +79,11 @@ stages:
       submodules: recursive
     - template: templates/azure-pipelines/entrypoint/powershell/generate.yml@PSRepositoryReleaseManager
     - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
+      parameters:
+        ASSETS: |
+          assets/asset1.tar.gz
+          assets/asset2.gz
+          assets/asset3.zip
   # - job: windows_powershell_5_0
   #   displayName: '[Windows] PowerShell 5.0'
   #   pool:
