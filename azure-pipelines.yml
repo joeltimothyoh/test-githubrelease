@@ -104,3 +104,4 @@ stages:
           # .assets/asset3.zip
         ASSETS: |
           .assets/*.gz
+          .assets/*.zip
