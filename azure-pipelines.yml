@@ -79,24 +79,24 @@ stages:
   #     submodules: recursive
   #   - template: templates/azure-pipelines/entrypoint/powershell/generate.yml@PSRepositoryReleaseManager
   #   - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
-  # - job: windows_powershell_5_0
-  #   displayName: '[Windows] PowerShell 5.0'
-  #   pool:
-  #     vmImage: vs2015-win2012r2
-  #   steps:
-  #   - checkout: self
-  #     submodules: recursive
-  #   - template: templates/azure-pipelines/entrypoint/powershell/generate.yml@PSRepositoryReleaseManager
-  #   - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
-  - job: macos
-    displayName: '[macOS] PowerShell Core'
+  - job: windows_powershell_5_0
+    displayName: '[Windows] PowerShell 5.0'
     pool:
-      vmImage: macOS-10.14
+      vmImage: vs2015-win2012r2
     steps:
     - checkout: self
       submodules: recursive
     - template: templates/azure-pipelines/entrypoint/powershell/generate.yml@PSRepositoryReleaseManager
     - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
+  # - job: macos
+  #   displayName: '[macOS] PowerShell Core'
+  #   pool:
+  #     vmImage: macOS-10.14
+  #   steps:
+  #   - checkout: self
+  #     submodules: recursive
+  #   - template: templates/azure-pipelines/entrypoint/powershell/generate.yml@PSRepositoryReleaseManager
+  #   - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
       parameters:
         ASSETS: |
           .assets/asset1.tar.gz
