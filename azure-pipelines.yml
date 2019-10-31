@@ -16,7 +16,7 @@ resources:
     type: github
     name: theohbrothers/PSRepositoryReleaseManager
     endpoint: joeltimothyoh
-    ref: refs/heads/dev-add-release-assets-support
+    ref: refs/heads/dev-add-release-assets-support2
 
 stages:
 - stage: build_release
