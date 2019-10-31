@@ -32,23 +32,23 @@ stages:
   #     submodules: recursive
   #   - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
   #   - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
-  # - job: linux
-  #   displayName: '[Linux] PowerShell Core'
-  #   pool:
-  #     vmImage: ubuntu-18.04
-  #   steps:
-  #   - checkout: self
-  #     submodules: recursive
-  #   - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
-  #   - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
-  - job: windows_pwsh
-    displayName: '[Windows] PowerShell Core'
+  - job: linux
+    displayName: '[Linux] PowerShell Core'
     pool:
-      vmImage: windows-2019
+      vmImage: ubuntu-18.04
     steps:
     - checkout: self
       submodules: recursive
     - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
+    - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
+  # - job: windows_pwsh
+  #   displayName: '[Windows] PowerShell Core'
+  #   pool:
+  #     vmImage: windows-2019
+  #   steps:
+  #   - checkout: self
+  #     submodules: recursive
+  #   - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
   #     parameters:
   #       NOTES_PATH: path/to/release-notes.md
   #       VARIANT: DateCommitHistory
@@ -78,7 +78,7 @@ stages:
   #   - checkout: self
   #     submodules: recursive
   #   - template: templates/azure-pipelines/entrypoint/powershell/generate.yml@PSRepositoryReleaseManager
-    - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
+  #   - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
       parameters:
         ASSETS: |
           .assets/asset1.tar.gz
