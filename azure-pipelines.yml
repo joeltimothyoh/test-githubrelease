@@ -16,7 +16,7 @@ resources:
     type: github
     name: theohbrothers/PSRepositoryReleaseManager
     endpoint: joeltimothyoh
-    ref: refs/heads/dev-add-release-asset-glob-pattern-support
+    ref: refs/heads/dev-improve-modularity-of-project
 
 stages:
 - stage: build_release
