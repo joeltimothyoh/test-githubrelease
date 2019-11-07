@@ -49,9 +49,9 @@ stages:
     - checkout: self
       submodules: recursive
     - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
-  #     parameters:
+      parameters:
   #       NOTES_PATH: path/to/release-notes.md
-  #       VARIANT: DateCommitHistory
+        VARIANT: DateCommitHistoryNoMerges
   #   - pwsh: |
   #       $myReleaseNotesContent = Get-Content -Path ./README.md -Raw
   #       echo "##vso[task.setvariable variable=MY_RELEASE_NOTES_CONTENT]${myReleaseNotesContent}"
