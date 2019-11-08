@@ -50,7 +50,7 @@ stages:
       submodules: recursive
     - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
       parameters:
-  #       NOTES_PATH: path/to/release-notes.md
+        NOTES_PATH: D:/a/1/s/build/PSRepositoryReleaseManager/.release-notes.md
         VARIANT: DateCommitHistoryNoMerges
   #   - pwsh: |
   #       $myReleaseNotesContent = Get-Content -Path ./README.md -Raw
