@@ -22,14 +22,14 @@ stages:
 - stage: build_release
   displayName: Build, Release
   jobs:
-  - job: linux_container
-    displayName: '[Linux] [Container] PowerShell Core'
-    pool:
-      vmImage: ubuntu-18.04
-    container: joeltimothyoh/powershell:6.1.0-ubuntu-18.04-git
-    steps:
-    - checkout: self
-      submodules: recursive
+  # - job: linux_container
+  #   displayName: '[Linux] [Container] PowerShell Core'
+  #   pool:
+  #     vmImage: ubuntu-18.04
+  #   container: joeltimothyoh/powershell:6.1.0-ubuntu-18.04-git
+  #   steps:
+  #   - checkout: self
+  #     submodules: recursive
   #   - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
   #   - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
   # - job: linux
@@ -68,13 +68,13 @@ stages:
   #     submodules: recursive
   #   - template: templates/azure-pipelines/entrypoint/powershell/generate.yml@PSRepositoryReleaseManager
   #   - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
-  # - job: macos
-  #   displayName: '[macOS] PowerShell Core'
-  #   pool:
-  #     vmImage: macOS-10.14
-  #   steps:
-  #   - checkout: self
-  #     submodules: recursive
+  - job: macos
+    displayName: '[macOS] PowerShell Core'
+    pool:
+      vmImage: macOS-10.14
+    steps:
+    - checkout: self
+      submodules: recursive
   #   - template: templates/azure-pipelines/entrypoint/powershell/generate.yml@PSRepositoryReleaseManager
   #   - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
     - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
