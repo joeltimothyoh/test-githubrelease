@@ -32,14 +32,14 @@ stages:
   #     submodules: recursive
   #   - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
   #   - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
-  - job: linux
-    displayName: '[Linux] PowerShell Core'
-    pool:
-      vmImage: ubuntu-18.04
-    steps:
-    - checkout: self
-      submodules: recursive
-    - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
+  # - job: linux
+  #   displayName: '[Linux] PowerShell Core'
+  #   pool:
+  #     vmImage: ubuntu-18.04
+  #   steps:
+  #   - checkout: self
+  #     submodules: recursive
+  #   - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
   #   - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
   # - job: windows_pwsh
   #   displayName: '[Windows] PowerShell Core'
@@ -49,27 +49,7 @@ stages:
   #   - checkout: self
   #     submodules: recursive
   #   - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
-      parameters:
-        NOTES_PATH: /home/vsts/work/1/s/build/PSRepositoryReleaseManager/.release-notes.md
-        VARIANT: DateCommitHistoryNoMerges
-  #   - pwsh: |
-  #       $myReleaseNotesContent = Get-Content -Path ./README.md -Raw
-  #       echo "##vso[task.setvariable variable=MY_RELEASE_NOTES_CONTENT]${myReleaseNotesContent}"
-    - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
-  #     parameters:
-  #       NAME: Custom release
-  #       NOTES_PATH: ./path/to/release-notes.md
-  #       NOTES_CONTENT: |
-  #         My
-
-  #         multi-line
-  #         release
-  #         notes
-
-  #         end
-  #       NOTES_CONTENT: $(MY_RELEASE_NOTES_CONTENT)
-  #       DRAFT: true
-  #       PRERELEASE: true
+  #   - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
   # - job: windows_powershell_5_1
   #   displayName: '[Windows] PowerShell 5.1'
   #   pool:
@@ -88,17 +68,33 @@ stages:
   #     submodules: recursive
   #   - template: templates/azure-pipelines/entrypoint/powershell/generate.yml@PSRepositoryReleaseManager
   #   - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
-  # - job: macos
-  #   displayName: '[macOS] PowerShell Core'
-  #   pool:
-  #     vmImage: macOS-10.14
-  #   steps:
-  #   - checkout: self
-  #     submodules: recursive
+  - job: macos
+    displayName: '[macOS] PowerShell Core'
+    pool:
+      vmImage: macOS-10.14
+    steps:
+    - checkout: self
+      submodules: recursive
   #   - template: templates/azure-pipelines/entrypoint/powershell/generate.yml@PSRepositoryReleaseManager
   #   - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
+    - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
       parameters:
-        NOTES_PATH: /home/vsts/work/1/s/build/PSRepositoryReleaseManager/.release-notes.md
+        # NOTES_PATH: /home/vsts/work/1/s/build/PSRepositoryReleaseManager/.release-notes.md
+        VARIANT: DateCommitHistoryNoMerges
+    - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
+      parameters:
+        # NAME: Custom release
+        # NOTES_PATH: /home/vsts/work/1/s/build/PSRepositoryReleaseManager/.release-notes.md
+        # NOTES_CONTENT: |
+        #   My
+
+        #   multi-line
+        #   release
+        #   notes
+
+        #   end
+        # DRAFT: true
+        # PRERELEASE: true
         # ASSETS: |
           # .assets/asset1.tar.gz
           # .assets/asset2.gz
