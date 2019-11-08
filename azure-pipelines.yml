@@ -77,11 +77,11 @@ stages:
       submodules: recursive
   #   - template: templates/azure-pipelines/entrypoint/powershell/generate.yml@PSRepositoryReleaseManager
   #   - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
-    - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
+    - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
       parameters:
         # NOTES_PATH: /home/vsts/work/1/s/build/PSRepositoryReleaseManager/.release-notes.md
         VARIANT: DateCommitHistoryNoMerges
-    - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
+    - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
       parameters:
         # NAME: Custom release
         # NOTES_PATH: /home/vsts/work/1/s/build/PSRepositoryReleaseManager/.release-notes.md
