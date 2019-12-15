@@ -66,8 +66,8 @@ stages:
     steps:
     - checkout: self
       submodules: recursive
-  #   - template: templates/azure-pipelines/entrypoint/powershell/generate.yml@PSRepositoryReleaseManager
-  #   - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
+    - template: templates/azure-pipelines/entrypoint/powershell/generate.yml@PSRepositoryReleaseManager
+    - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
   # - job: macos
   #   displayName: '[macOS] PowerShell Core'
   #   pool:
@@ -77,11 +77,12 @@ stages:
   #     submodules: recursive
   #   - template: templates/azure-pipelines/entrypoint/powershell/generate.yml@PSRepositoryReleaseManager
   #   - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
-    - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
+
+    # - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
       # parameters:
       #   NOTES_PATH: /Users/runner/runners/2.160.0/work/1/s/build/PSRepositoryReleaseManager/.release-notes.md
       #   VARIANT: DateCommitHistoryNoMerges
-    - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
+    # - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
       parameters:
         # NAME: Custom release
         # NOTES_PATH: /Users/runner/runners/2.160.0/work/1/s/build/PSRepositoryReleaseManager/.release-notes.md
