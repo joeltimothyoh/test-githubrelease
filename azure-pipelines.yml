@@ -16,7 +16,7 @@ resources:
     type: github
     name: theohbrothers/PSRepositoryReleaseManager
     endpoint: joeltimothyoh
-    ref: refs/tags/v0.5.3
+    ref: refs/refs/dev
 
 stages:
 - stage: build_release
@@ -81,9 +81,9 @@ stages:
 
     # - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
     - template: templates/azure-pipelines/entrypoint/powershell/generate.yml@PSRepositoryReleaseManager
-      parameters:
-      #   NOTES_PATH: /Users/runner/runners/2.160.0/work/1/s/build/PSRepositoryReleaseManager/.release-notes.md
-        VARIANT: DateCommitHistory
+      # parameters:
+        # NOTES_PATH: /Users/runner/runners/2.160.0/work/1/s/build/PSRepositoryReleaseManager/.release-notes.md
+        # VARIANT: DateCommitHistory
 
     # - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
     - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
