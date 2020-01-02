@@ -1,4 +1,3 @@
 [submodule "build/PSRepositoryReleaseManager"]
 	path = build/PSRepositoryReleaseManager
-	url = https://github.com/theohbrothers/PSRepositoryReleaseManager.git
-	branch = dev-add-release-asset-glob-pattern-support
+	url = https://github.com/theohbrothers/PSRepositoryReleaseManager.github
