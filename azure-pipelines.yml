@@ -16,7 +16,7 @@ resources:
     type: github
     name: theohbrothers/PSRepositoryReleaseManager
     endpoint: joeltimothyoh
-    ref: refs/heads/refactor/remove-use-of-psboundparameters
+    ref: refs/ref/4a6beabdc242a1eb43a84420d42cb87b68ad0e7b
 
 stages:
 - stage: build_release
@@ -26,7 +26,8 @@ stages:
     displayName: '[Linux] [Container] PowerShell Core'
     pool:
       vmImage: ubuntu-18.04
-    container: joeltimothyoh/powershell:6.1.0-ubuntu-18.04-git
+    container: theohbrothers/docker-powershell:7.1.3-ubuntu-18.04-20210316-git
+    # container: joeltimothyoh/powershell:6.1.0-ubuntu-18.04-git
     steps:
     - checkout: self
       submodules: recursive
