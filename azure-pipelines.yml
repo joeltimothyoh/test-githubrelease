@@ -22,16 +22,16 @@ stages:
 - stage: build_release
   displayName: Build, Release
   jobs:
-  # - job: linux_container
-  #   displayName: '[Linux] [Container] PowerShell Core'
-  #   pool:
-  #     vmImage: ubuntu-18.04
-  #   container: joeltimothyoh/powershell:6.1.0-ubuntu-18.04-git
-  #   steps:
-  #   - checkout: self
-  #     submodules: recursive
-  #   - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
-  #   - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
+  - job: linux_container
+    displayName: '[Linux] [Container] PowerShell Core'
+    pool:
+      vmImage: ubuntu-18.04
+    container: joeltimothyoh/powershell:6.1.0-ubuntu-18.04-git
+    steps:
+    - checkout: self
+      submodules: recursive
+    - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
+    - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
   # - job: linux
   #   displayName: '[Linux] PowerShell Core'
   #   pool:
@@ -59,15 +59,6 @@ stages:
   #     submodules: recursive
   #   - template: templates/azure-pipelines/entrypoint/powershell/generate.yml@PSRepositoryReleaseManager
   #   - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
-  - job: windows_powershell_5_0
-    displayName: '[Windows] PowerShell 5.0'
-    pool:
-      vmImage: vs2015-win2012r2
-    steps:
-    - checkout: self
-      submodules: recursive
-    # - template: templates/azure-pipelines/entrypoint/powershell/generate.yml@PSRepositoryReleaseManager
-    # - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
   # - job: macos
   #   displayName: '[macOS] PowerShell Core'
   #   pool:
@@ -79,31 +70,31 @@ stages:
   #   - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
 
 
-    # - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
-    - template: templates/azure-pipelines/entrypoint/powershell/generate.yml@PSRepositoryReleaseManager
-      parameters:
-        # NOTES_PATH: /Users/runner/runners/2.160.0/work/1/s/build/PSRepositoryReleaseManager/.release-notes.md
-        VARIANT: DateHistory-Subject-NoMerges
+    # # - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
+    # - template: templates/azure-pipelines/entrypoint/powershell/generate.yml@PSRepositoryReleaseManager
+    #   parameters:
+    #     # NOTES_PATH: /Users/runner/runners/2.160.0/work/1/s/build/PSRepositoryReleaseManager/.release-notes.md
+    #     VARIANT: DateHistory-Subject-NoMerges
 
-    # - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
-    - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
-      parameters:
-        # NAME: Custom release
-        # NOTES_PATH: /Users/runner/runners/2.160.0/work/1/s/build/PSRepositoryReleaseManager/.release-notes.md
-        # NOTES_CONTENT: |
-        #   My
+    # # - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
+    # - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
+    #   parameters:
+    #     # NAME: Custom release
+    #     # NOTES_PATH: /Users/runner/runners/2.160.0/work/1/s/build/PSRepositoryReleaseManager/.release-notes.md
+    #     # NOTES_CONTENT: |
+    #     #   My
 
-        #   multi-line
-        #   release
-        #   notes
+    #     #   multi-line
+    #     #   release
+    #     #   notes
 
-        #   end
-        # DRAFT: true
-        # PRERELEASE: true
-        # ASSETS: |
-          # .assets/asset1.tar.gz
-          # .assets/asset2.gz
-          # .assets/asset3.zip
-        ASSETS: |
-          .assets/*.gz
-          .assets/*.zip
+    #     #   end
+    #     # DRAFT: true
+    #     # PRERELEASE: true
+    #     # ASSETS: |
+    #       # .assets/asset1.tar.gz
+    #       # .assets/asset2.gz
+    #       # .assets/asset3.zip
+    #     ASSETS: |
+    #       .assets/*.gz
+    #       .assets/*.zip
