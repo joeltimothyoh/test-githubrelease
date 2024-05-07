@@ -51,24 +51,24 @@ stages:
   #     submodules: recursive
   #   - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
   #   - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
-  - job: windows_powershell_5_1
-    displayName: '[Windows] PowerShell 5.1'
-    pool:
-      vmImage: windows-2019
-    steps:
-    - checkout: self
-      submodules: recursive
-    - template: templates/azure-pipelines/entrypoint/powershell/generate.yml@PSRepositoryReleaseManager
-    - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
-  # - job: macos
-  #   displayName: '[macOS] PowerShell Core'
+  # - job: windows_powershell_5_1
+  #   displayName: '[Windows] PowerShell 5.1'
   #   pool:
-  #     vmImage: macOS-10.14
+  #     vmImage: windows-2019
   #   steps:
   #   - checkout: self
   #     submodules: recursive
-  #   - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
-  #   - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
+  #   - template: templates/azure-pipelines/entrypoint/powershell/generate.yml@PSRepositoryReleaseManager
+  #   - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
+  - job: macos
+    displayName: '[macOS] PowerShell Core'
+    pool:
+      vmImage: macos-14
+    steps:
+    - checkout: self
+      submodules: recursive
+    - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
+    - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
 
 
     # # - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
