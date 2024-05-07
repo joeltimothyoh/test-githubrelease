@@ -16,7 +16,7 @@ resources:
     type: github
     name: theohbrothers/PSRepositoryReleaseManager
     endpoint: joeltimothyoh
-    ref: refs/tags/v0.7.0
+    ref: refs/refs/f47848a4f9fcfd85f3ee853c378647912492f1fc
 
 stages:
 - stage: build_release
