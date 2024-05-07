@@ -82,20 +82,20 @@ stages:
       parameters:
         NAME: Custom release
         # NOTES_PATH: /Users/runner/runners/2.160.0/work/1/s/build/PSRepositoryReleaseManager/.release-notes.md
-        NOTES_CONTENT: |
-          My
+        # NOTES_CONTENT: |
+        #   My
 
-          multi-line
-          release
-          notes
+        #   multi-line
+        #   release
+        #   notes
 
-          end
-        DRAFT: true
-        PRERELEASE: true
-        # ASSETS: |
-        #   .assets/asset1.tar.gz
-        #   .assets/asset2.gz
-        #   .assets/asset3.zip
+        #   end
+        # DRAFT: true
+        # PRERELEASE: true
         ASSETS: |
-          .assets/*.gz
-          .assets/*.zip
+          .assets/asset1.tar.gz
+          .assets/asset2.gz
+          .assets/asset3.zip
+        # ASSETS: |
+        #   .assets/*.gz
+        #   .assets/*.zip
