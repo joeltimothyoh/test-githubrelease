@@ -16,7 +16,7 @@ resources:
     type: github
     name: theohbrothers/PSRepositoryReleaseManager
     endpoint: joeltimothyoh
-    ref: refs/heads/enhancement/ci-use-single-invoke-release.ps1-entrypoint-script-for-both-development-and-ci-environments
+    ref: refs/heads/refactor/ci-tweak-condition-for-processing-env-release_notes_content
 
 stages:
 - stage: build_release
