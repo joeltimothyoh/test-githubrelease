@@ -80,7 +80,7 @@ stages:
     # # - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
     # - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
       parameters:
-        NAME: Custom release
+        # NAME: Custom release
         # NOTES_PATH: /Users/runner/runners/2.160.0/work/1/s/build/PSRepositoryReleaseManager/.release-notes.md
         # NOTES_CONTENT: |
         #   My
@@ -92,10 +92,10 @@ stages:
         #   end
         # DRAFT: true
         # PRERELEASE: true
-        ASSETS: |
-          .assets/asset1.tar.gz
-          .assets/asset2.gz
-          .assets/asset3.zip
+        # ASSETS: |
+        #   .assets/asset1.tar.gz
+        #   .assets/asset2.gz
+        #   .assets/asset3.zip
         # ASSETS: |
         #   .assets/*.gz
         #   .assets/*.zip
