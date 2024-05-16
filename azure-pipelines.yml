@@ -79,7 +79,7 @@ stages:
 
     # # - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
     # - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
-      parameters:
+      # parameters:
         # NAME: Custom release
         # NOTES_PATH: /Users/runner/runners/2.160.0/work/1/s/build/PSRepositoryReleaseManager/.release-notes.md
         # NOTES_CONTENT: |
