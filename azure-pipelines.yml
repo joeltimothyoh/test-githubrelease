@@ -16,7 +16,7 @@ resources:
     type: github
     name: theohbrothers/PSRepositoryReleaseManager
     endpoint: joeltimothyoh
-    ref: refs/heads/refactor/ci-tweak-condition-for-processing-env-release_notes_content
+    ref: refs/heads/enhancement/release-add-support-for-creating-releases-without-existing-superproject-to-invoke-release.ps1
 
 stages:
 - stage: build_release
