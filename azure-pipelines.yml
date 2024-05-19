@@ -74,8 +74,8 @@ stages:
     # # - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
     # - template: templates/azure-pipelines/entrypoint/powershell/generate.yml@PSRepositoryReleaseManager
       parameters:
-        RELEASE_NOTES_PATH: .release-notes.md
         RELEASE_NOTES_VARIANT: Changes-HashSubject-NoMerges
+        RELEASE_NOTES_PATH: .release-notes.md
 
     # # - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
     - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
