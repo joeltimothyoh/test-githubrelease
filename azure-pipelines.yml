@@ -16,7 +16,7 @@ resources:
     type: github
     name: theohbrothers/PSRepositoryReleaseManager
     endpoint: joeltimothyoh
-    ref: refs/heads/enhancement/generate-add-support-for-generating-release-notes-with-default-ref-head-if-env-release_tag_ref-is-null-or-undefined
+    ref: refs/heads/enhancement/ci-standardize-azure-pipelines-template-parameters-with-generate-and-release-environment-variables
 
 stages:
 - stage: build_release
@@ -80,9 +80,9 @@ stages:
     # # - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
     # - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
       parameters:
-        NAME: Custom release
-        # NOTES_PATH: /Users/runner/work/1/s/build/PSRepositoryReleaseManager/.release-notes.md
-        NOTES_CONTENT: |
+        RELEASE_NAME: Custom release
+        # RELEASE_NOTES_PATH: /Users/runner/work/1/s/build/PSRepositoryReleaseManager/.release-notes.md
+        RELEASE_NOTES_CONTENT: |
           My
 
           multi-line
@@ -90,12 +90,12 @@ stages:
           notes
 
           end
-        DRAFT: false
-        PRERELEASE: false
-        # ASSETS: |
+        RELEASE_DRAFT: false
+        RELEASE_PRERELEASE: false
+        # RELEASE_ASSETS: |
         #   .assets/asset1.tar.gz
         #   .assets/asset2.gz
         #   .assets/asset3.zip
-        ASSETS: |
+        RELEASE_ASSETS: |
           .assets/*.gz
           .assets/*.zip
