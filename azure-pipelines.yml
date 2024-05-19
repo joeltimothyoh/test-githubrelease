@@ -16,7 +16,7 @@ resources:
     type: github
     name: theohbrothers/PSRepositoryReleaseManager
     endpoint: joeltimothyoh
-    ref: refs/heads/fix/entrypoint-fix-cmdletbinding-attributes-in-invoke-release.ps1
+    ref: refs/heads/enhancement/generate-add-support-for-defaulting-to-ref-head-for-generating-release-notes-if-env-release_tag_ref-is-null-or-undefined
 
 stages:
 - stage: build_release
