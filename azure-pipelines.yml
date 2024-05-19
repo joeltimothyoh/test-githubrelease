@@ -16,7 +16,7 @@ resources:
     type: github
     name: theohbrothers/PSRepositoryReleaseManager
     endpoint: joeltimothyoh
-    ref: refs/heads/enhancement/generate-add-support-for-defaulting-to-ref-head-for-generating-release-notes-if-env-release_tag_ref-is-null-or-undefined
+    ref: refs/heads/enhancement/generate-add-support-for-generating-release-notes-with-default-ref-head-if-env-release_tag_ref-is-null-or-undefined
 
 stages:
 - stage: build_release
