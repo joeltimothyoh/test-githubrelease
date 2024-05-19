@@ -32,7 +32,7 @@ stages:
     - checkout: self
       submodules: recursive
     - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
-    - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
+    # - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
   # - job: linux
   #   displayName: '[Linux] PowerShell Core'
   #   pool:
@@ -73,23 +73,23 @@ stages:
 
     # # - template: templates/azure-pipelines/entrypoint/generate.yml@PSRepositoryReleaseManager
     # - template: templates/azure-pipelines/entrypoint/powershell/generate.yml@PSRepositoryReleaseManager
-    #   parameters:
-    #     # NOTES_PATH: /Users/runner/runners/2.160.0/work/1/s/build/PSRepositoryReleaseManager/.release-notes.md
-    #     VARIANT: DateHistory-Subject-NoMerges
+      parameters:
+        RELEASE_NOTES_PATH: .release-notes.md
+        RELEASE_NOTES_VARIANT: Changes-HashSubject-NoMerges
 
     # # - template: templates/azure-pipelines/entrypoint/release.yml@PSRepositoryReleaseManager
-    # - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
+    - template: templates/azure-pipelines/entrypoint/powershell/release.yml@PSRepositoryReleaseManager
       parameters:
-        RELEASE_NAME: Custom release
-        # RELEASE_NOTES_PATH: /Users/runner/work/1/s/build/PSRepositoryReleaseManager/.release-notes.md
-        RELEASE_NOTES_CONTENT: |
-          My
+        # RELEASE_NAME: Custom release
+        RELEASE_NOTES_PATH: .release-notes.md
+        # RELEASE_NOTES_CONTENT: |
+        #   My
 
-          multi-line
-          release
-          notes
+        #   multi-line
+        #   release
+        #   notes
 
-          end
+        #   end
         RELEASE_DRAFT: false
         RELEASE_PRERELEASE: false
         # RELEASE_ASSETS: |
