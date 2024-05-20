@@ -25,8 +25,11 @@ jobs:
 
         # Process applicable environment variables
         export PROJECT_DIRECTORY="$(git rev-parse --show-toplevel)"
+        export RELEASE_TAG_REF=$( echo "$GITHUB_REF" | sed -rn 's/^refs\/tags\/(.*)/\1/p'
 
+        echo "$GITHUB_REF"
         echo "$GITHUB_REF_NAME"
+        echo "$RELEASE_TAG_REF"
 
         # Generate (Generates release notes)
         pwsh -c '$VerbosePreference = "Continue"; ./PSRepositoryReleaseManager/src/scripts/ci/Invoke-Generate.ps1'
