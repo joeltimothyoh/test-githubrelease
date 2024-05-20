@@ -26,6 +26,8 @@ jobs:
         # Process applicable environment variables
         export PROJECT_DIRECTORY="$(git rev-parse --show-toplevel)"
 
+        echo "$GITHUB_REF_NAME"
+
         # Generate (Generates release notes)
         pwsh -c './../PSRepositoryReleaseManager/src/scripts/ci/Invoke-Generate.ps1'
         cat ../PSRepositoryReleaseManager/.release-notes.md
@@ -37,6 +39,8 @@ jobs:
         export RELEASE_TAG_REF="$GITHUB_REF_NAME"
         export RELEASE_NAMESPACE="$GITHUB_REPOSITORY_OWNER"
         export RELEASE_REPOSITORY=$(basename "$(git rev-parse --show-toplevel)")
+
+        echo "$GITHUB_REF_NAME"
 
         # Release (Creates GitHub release)
         pwsh -c './../PSRepositoryReleaseManager/src/scripts/ci/Invoke-Release.ps1'
