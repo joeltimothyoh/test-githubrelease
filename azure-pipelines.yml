@@ -1,4 +1,4 @@
-trigger: 'false'
+trigger: none
 # trigger:
 #   branches:
 #     include:
@@ -6,6 +6,7 @@ trigger: 'false'
 #   tags:
 #     include:
 #     - '*'
+pr: none
 # pr:
 #   branches:
 #     include:
