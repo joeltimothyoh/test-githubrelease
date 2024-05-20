@@ -41,8 +41,10 @@ jobs:
         export RELEASE_REPOSITORY=$(basename "$(git rev-parse --show-toplevel)")
 
         echo "$GITHUB_REF_NAME"
+        echo "$RELEASE_TAG_REFG"
 
         # Release (Creates GitHub release)
+        pwsh -c 'gci env:*'
         pwsh -c './../PSRepositoryReleaseManager/src/scripts/ci/Invoke-Release.ps1'
       env:
         GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
