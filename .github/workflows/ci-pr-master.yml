@@ -27,8 +27,8 @@ jobs:
         export PROJECT_DIRECTORY="$(git rev-parse --show-toplevel)"
 
         # Generate (Generates release notes)
-        releasenotespath=$(pwsh -c './../PSRepositoryReleaseManager/src/scripts/ci/Invoke-Generate.ps1')
-        cat "$releasenotespath"
+        pwsh -c './../PSRepositoryReleaseManager/src/scripts/ci/Invoke-Generate.ps1'
+        cat .release-notes.md
     - name: Create release
       if: startsWith(github.ref, 'refs/tags/')
       run: |
