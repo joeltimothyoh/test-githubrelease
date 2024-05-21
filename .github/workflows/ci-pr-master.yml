@@ -26,7 +26,7 @@ jobs:
     - name: Generate release notes
       run: |
         # Clone project
-        git clone https://github.com/theohbrothers/PSRepositoryReleaseManager.git --recurse-submodules --branch 'fix/release-fix-default-variable-values-for-when-env-release_draft-and-env-release_prerelease-are-null-or-undefined' PSRepositoryReleaseManager
+        git clone https://github.com/theohbrothers/PSRepositoryReleaseManager.git --recurse-submodules --depth 1 --branch 'fix/release-fix-default-variable-values-for-when-env-release_draft-and-env-release_prerelease-are-null-or-undefined'
 
         # Process applicable environment variables
         export PROJECT_DIRECTORY=$( git rev-parse --show-toplevel )
