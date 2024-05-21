@@ -13,6 +13,8 @@ on:
 jobs:
   generate-and-release:
     runs-on: ubuntu-latest
+    container:
+      image: theohbrothers/docker-powershell:7.2-ubuntu-22.04-git
     steps:
     - uses: actions/checkout@v1
     - name: Powershell version
