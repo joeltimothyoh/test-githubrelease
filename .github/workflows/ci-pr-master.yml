@@ -29,7 +29,7 @@ jobs:
         git clone https://github.com/theohbrothers/PSRepositoryReleaseManager.git --recurse-submodules --branch 'fix/release-fix-default-variable-values-for-when-env-release_draft-and-env-release_prerelease-are-null-or-undefined' PSRepositoryReleaseManager
 
         # Process applicable environment variables
-        export PROJECT_DIRECTORY="$(git rev-parse --show-toplevel)"
+        export PROJECT_DIRECTORY=$( git rev-parse --show-toplevel )
         export RELEASE_TAG_REF=$( echo "$GITHUB_REF" | sed -rn 's/^refs\/tags\/(.*)/\1/p' )
 
         # echo "GITHUB_REF: $GITHUB_REF"
@@ -48,10 +48,10 @@ jobs:
       if: startsWith(github.ref, 'refs/tags/')
       run: |
         # Process applicable environment variables
-        export PROJECT_DIRECTORY="$(git rev-parse --show-toplevel)"
+        export PROJECT_DIRECTORY=$( git rev-parse --show-toplevel )
         export RELEASE_TAG_REF=$( echo "$GITHUB_REF" | sed -rn 's/^refs\/tags\/(.*)/\1/p' )
         export RELEASE_NAMESPACE="$GITHUB_REPOSITORY_OWNER"
-        export RELEASE_REPOSITORY=$(basename "$(git rev-parse --show-toplevel)")
+        export RELEASE_REPOSITORY=$( basename "$( git rev-parse --show-toplevel )" )
 
         # echo "GITHUB_REF: $GITHUB_REF"
         # echo "GITHUB_REF_NAME: $GITHUB_REF_NAME"
