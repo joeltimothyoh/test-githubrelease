@@ -11,7 +11,20 @@ on:
     - master
 
 jobs:
+  test-job-1:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+
+  test-job-2:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+
   release:
+    needs:
+      - test-job-1
+      - test-job-2
     runs-on: ubuntu-latest
     container:
       image: theohbrothers/docker-powershell:7.2-ubuntu-22.04-git
