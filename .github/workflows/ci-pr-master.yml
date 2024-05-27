@@ -39,7 +39,7 @@ jobs:
     - name: Generate release notes
       run: |
         # Clone project
-        git clone https://github.com/theohbrothers/PSRepositoryReleaseManager.git --recurse-submodules --depth 1 --shallow-submodules --branch 'master' # Specify tag ref to checkout to
+        git clone https://github.com/theohbrothers/PSRepositoryReleaseManager.git --recurse-submodules --depth 1 --shallow-submodules --branch 'enhancement/generate-add-sorting-of-uncategorized-changes-in-x-categorizedsorted-variants' # Specify tag ref to checkout to
 
         # Process applicable environment variables
         export PROJECT_DIRECTORY=$( git rev-parse --show-toplevel )
