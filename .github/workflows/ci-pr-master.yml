@@ -50,7 +50,7 @@ jobs:
         # echo "RELEASE_TAG_REF: $RELEASE_TAG_REF"
 
         # Generate (Generates release notes)
-        pwsh -c '$VerbosePreference = "Continue"; ./PSRepositoryReleaseManager/src/scripts/ci/Invoke-Generate.ps1'
+        pwsh -NoLogo -NonInteractive -NoProfile -Command '$VerbosePreference = "Continue"; ./PSRepositoryReleaseManager/src/scripts/ci/Invoke-Generate.ps1'
         cat PSRepositoryReleaseManager/.release-notes.md
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
@@ -71,7 +71,7 @@ jobs:
         # echo "RELEASE_TAG_REF: $RELEASE_TAG_REF"
 
         # Release (Creates GitHub release)
-        # pwsh -c 'gci env:*'
-        pwsh -c '$VerbosePreference = "Continue"; ./PSRepositoryReleaseManager/src/scripts/ci/Invoke-Release.ps1'
+        # pwsh -NoLogo -NonInteractive -NoProfile -Command 'gci env:*'
+        pwsh -NoLogo -NonInteractive -NoProfile -Command '$VerbosePreference = "Continue"; ./PSRepositoryReleaseManager/src/scripts/ci/Invoke-Release.ps1'
       env:
         GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
