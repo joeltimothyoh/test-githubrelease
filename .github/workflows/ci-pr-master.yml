@@ -38,16 +38,12 @@ jobs:
         git config --global --add safe.directory "$( pwd )"
     - name: Generate release notes
       run: |
-        # Clone project
-        git clone https://github.com/theohbrothers/PSRepositoryReleaseManager.git --recurse-submodules --depth 1 --shallow-submodules --branch 'master' # Specify tag ref to checkout to
+        # Clone PSRepositoryReleaseManager
+        git clone https://github.com/theohbrothers/PSRepositoryReleaseManager.git --recurse-submodules --depth 1 --shallow-submodules --branch 'v0.11.0' # Specify tag ref to checkout to
 
         # Process applicable environment variables
         export PROJECT_DIRECTORY=$( git rev-parse --show-toplevel )
         export RELEASE_TAG_REF=$( echo "$GITHUB_REF" | sed -rn 's/^refs\/tags\/(.*)/\1/p' )
-
-        # echo "GITHUB_REF: $GITHUB_REF"
-        # echo "GITHUB_REF_NAME: $GITHUB_REF_NAME"
-        # echo "RELEASE_TAG_REF: $RELEASE_TAG_REF"
 
         # Generate (Generates release notes)
         pwsh -NoLogo -NonInteractive -NoProfile -Command '$VerbosePreference = "Continue"; ./PSRepositoryReleaseManager/src/scripts/ci/Invoke-Generate.ps1'
@@ -66,12 +62,7 @@ jobs:
         export RELEASE_NAMESPACE="$GITHUB_REPOSITORY_OWNER"
         export RELEASE_REPOSITORY=$( basename "$( git rev-parse --show-toplevel )" )
 
-        # echo "GITHUB_REF: $GITHUB_REF"
-        # echo "GITHUB_REF_NAME: $GITHUB_REF_NAME"
-        # echo "RELEASE_TAG_REF: $RELEASE_TAG_REF"
-
         # Release (Creates GitHub release)
-        # pwsh -NoLogo -NonInteractive -NoProfile -Command 'gci env:*'
         pwsh -NoLogo -NonInteractive -NoProfile -Command '$VerbosePreference = "Continue"; ./PSRepositoryReleaseManager/src/scripts/ci/Invoke-Release.ps1'
       env:
         GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
