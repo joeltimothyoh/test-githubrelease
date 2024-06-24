@@ -1,11 +1,11 @@
-trigger: none
-# trigger:
-#   branches:
-#     include:
-#     - '*'
-#   tags:
-#     include:
-#     - '*'
+# trigger: none
+trigger:
+  branches:
+    include:
+    - '*'
+  tags:
+    include:
+    - '*'
 pr: none
 # pr:
 #   branches:
@@ -18,7 +18,7 @@ resources:
     type: github
     name: theohbrothers/PSRepositoryReleaseManager
     endpoint: joeltimothyoh
-    ref: refs/heads/enhancement/generate-fix-regex-patterns-for-matching-commit-messages-following-categorized-conventions
+    ref: refs/heads/docs/samples-standardize-azure-pipelines-templates
 
 stages:
 - stage: build_release
