@@ -1,11 +1,11 @@
-# trigger: none
-trigger:
-  branches:
-    include:
-    - '*'
-  tags:
-    include:
-    - '*'
+trigger: none
+# trigger:
+#   branches:
+#     include:
+#     - '*'
+#   tags:
+#     include:
+#     - '*'
 pr: none
 # pr:
 #   branches:

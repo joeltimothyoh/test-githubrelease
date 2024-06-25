@@ -3,8 +3,8 @@ name: ci-master-pr
 on:
   push:
     branches:
-    - none
-    # - '**'
+    # - none
+    - '**'
     # tags:
     # - '**'
     # - '**'
