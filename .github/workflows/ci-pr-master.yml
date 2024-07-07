@@ -3,13 +3,13 @@ name: ci-master-pr
 on:
   push:
     branches:
-    - none
-    # - '**'
-  #   tags:
-  #   - '**'
-  # pull_request:
-  #   branches:
-  #   - master
+    # - none
+    - '**'
+    tags:
+    - '**'
+  pull_request:
+    branches:
+    - master
 
 jobs:
   test-job-1:

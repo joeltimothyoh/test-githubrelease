@@ -1,16 +1,16 @@
-# trigger: none
-trigger:
-  branches:
-    include:
-    - '*'
-  tags:
-    include:
-    - '*'
-# pr: none
-pr:
-  branches:
-    include:
-    - '*'
+trigger: none
+# trigger:
+#   branches:
+#     include:
+#     - '*'
+#   tags:
+#     include:
+#     - '*'
+pr: none
+# pr:
+#   branches:
+#     include:
+#     - '*'
 
 resources:
   repositories:
