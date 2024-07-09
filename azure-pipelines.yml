@@ -1,16 +1,16 @@
-trigger: none
-# trigger:
-#   branches:
-#     include:
-#     - '*'
-#   tags:
-#     include:
-#     - '*'
-pr: none
-# pr:
-#   branches:
-#     include:
-#     - '*'
+trigger:
+  branches:
+    include:
+    - '*'
+  tags:
+    include:
+    - '*'
+pr:
+  branches:
+    include:
+    - '*'
+# trigger: none
+# pr: none
 
 resources:
   repositories:
@@ -18,7 +18,7 @@ resources:
     type: github
     name: theohbrothers/PSRepositoryReleaseManager
     endpoint: joeltimothyoh
-    ref: refs/heads/docs/samples-standardize-azure-pipelines-templates
+    ref: refs/heads/enhancement/ci-simplify-azure-pipelines-generate-and-release-remote-templates
 
 stages:
 - stage: build_release
