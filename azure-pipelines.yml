@@ -18,7 +18,7 @@ resources:
     type: github
     name: theohbrothers/PSRepositoryReleaseManager
     endpoint: joeltimothyoh
-    ref: refs/heads/enhancement/ci-simplify-azure-pipelines-generate-and-release-remote-templates
+    ref: refs/heads/enhancement/entrypoint-improve-processing-of-release-variables
 
 stages:
 - stage: build_release
