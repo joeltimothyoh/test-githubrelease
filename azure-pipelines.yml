@@ -18,7 +18,7 @@ resources:
     type: github
     name: theohbrothers/PSRepositoryReleaseManager
     endpoint: joeltimothyoh
-    ref: refs/heads/enhancement/generate-add-tag-type-support-for-function-get-repositoryreleaseprevious
+    ref: refs/heads/master
 
 stages:
 - stage: build_release
