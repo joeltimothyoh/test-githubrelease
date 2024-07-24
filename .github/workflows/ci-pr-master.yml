@@ -1,18 +1,18 @@
 name: ci-master-pr
 
-# on:
-#   push:
-#     branches:
-#     - '**'
-#     tags:
-#     - '**'
-#   pull_request:
-#     branches:
-#     - master
 on:
   push:
     branches:
-    - none
+    - '**'
+    tags:
+    - '**'
+  pull_request:
+    branches:
+    - master
+# on:
+#   push:
+#     branches:
+#     - none
 
 jobs:
   test-job-1:
@@ -43,7 +43,7 @@ jobs:
     - name: Generate release notes
       run: |
         # Clone PSRepositoryReleaseManager
-        git clone https://github.com/theohbrothers/PSRepositoryReleaseManager.git --recurse-submodules --depth 1 --shallow-submodules --branch 'master' # Specify tag ref to checkout to
+        git clone https://github.com/theohbrothers/PSRepositoryReleaseManager.git --recurse-submodules --depth 1 --shallow-submodules --branch 'enhancement/lib-bump-psgithubrestapi-to-v0.1.9' # Specify tag ref to checkout to
 
         # Process applicable environment variables
         export RELEASE_TAG_REF=$( echo "$GITHUB_REF" | sed -rn 's/^refs\/tags\/(.*)/\1/p' )
