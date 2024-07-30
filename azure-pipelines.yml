@@ -1,16 +1,16 @@
-# trigger:
-#   branches:
-#     include:
-#     - '*'
-#   tags:
-#     include:
-#     - '*'
-# pr:
-#   branches:
-#     include:
-#     - '*'
-trigger: none
-pr: none
+trigger:
+  branches:
+    include:
+    - '*'
+  tags:
+    include:
+    - '*'
+pr:
+  branches:
+    include:
+    - '*'
+# trigger: none
+# pr: none
 
 resources:
   repositories:
@@ -18,7 +18,7 @@ resources:
     type: github
     name: theohbrothers/PSRepositoryReleaseManager
     endpoint: joeltimothyoh
-    ref: refs/tags/v0.15.0
+    ref: refs/heads/refactor/entrypoint-simplify-variable-interpolation-in-invoke-release.ps1
 
 stages:
 - stage: build_release
