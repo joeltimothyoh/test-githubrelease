@@ -92,8 +92,8 @@ stages:
         #   notes
 
         #   end
-        RELEASE_DRAFT: false
-        RELEASE_PRERELEASE: false
+        RELEASE_DRAFT: true
+        RELEASE_PRERELEASE: true
         # RELEASE_ASSETS: |
         #   .assets/asset1.tar.gz
         #   .assets/asset2.gz
