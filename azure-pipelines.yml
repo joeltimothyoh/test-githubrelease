@@ -18,7 +18,7 @@ resources:
     type: github
     name: theohbrothers/PSRepositoryReleaseManager
     endpoint: joeltimothyoh
-    ref: refs/heads/enhancement/module-simplify-parameter-validation-attributes-for-various-functions
+    ref: refs/heads/enhancement/release-remove-default-values-for-release-draft-and-prerelease-options
 
 stages:
 - stage: build_release
