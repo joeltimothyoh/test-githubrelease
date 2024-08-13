@@ -18,7 +18,7 @@ resources:
     type: github
     name: theohbrothers/PSRepositoryReleaseManager
     endpoint: joeltimothyoh
-    ref: refs/heads/refactor/entrypoint-simplify-variable-interpolation-in-invoke-release.ps1
+    ref: refs/heads/master
 
 stages:
 - stage: build_release
